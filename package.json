@@ -1,0 +1,25 @@
+{
+  "name": "webappjourney",
+  "version": "0.1.0",
+  "description": "A Web Application Journey set of posts on Medium.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philiplopez/webappjourney.git"
+  },
+  "author": "Philip Lopez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/philiplopez/webappjourney/issues"
+  },
+  "homepage": "https://github.com/philiplopez/webappjourney#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015-webpack": "^6.4.1",
+    "webpack": "^1.13.1"
+  }
+}

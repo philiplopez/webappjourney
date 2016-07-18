@@ -1,4 +1,7 @@
 const {resolve} = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackTemplate = require('html-webpack-template')
+
 module.exports = env => {
   return {
     entry: './js/client.js',
@@ -22,5 +25,11 @@ module.exports = env => {
         }
       ],
     },
+    plugins: [new HtmlWebpackPlugin({
+      inject: false,
+      template: HtmlWebpackTemplate,
+      appMountId: 'app-container',
+      mobile: true
+    })]
   }
 }

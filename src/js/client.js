@@ -5,7 +5,7 @@ class AppContainer extends React.Component {
   render () {
     return (
       <p>
-        Hello, there!
+        Hola!
       </p>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 
+// TODO: propTypes (content)
 export default function HtmlTemplate(props) {
     return (
         <html>
@@ -7,7 +8,7 @@ export default function HtmlTemplate(props) {
                 <title>A Web Application Journey</title>
             </head>
             <body>
-                <p>We've rendered!</p>
+                <div id='appContainer' dangerouslySetInnerHTML={{__html: props.content}} />
             </body>
         </html>
     );

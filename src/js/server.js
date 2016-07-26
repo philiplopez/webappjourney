@@ -14,12 +14,17 @@ app.use('/static', express.static(clientDistPath))
 app.get('/*', (request, response) => {
     console.log('GET received for: ', request.url);
     match({routes, location: request.url}, (error, redirectLocation, renderProps) => {
+      
       if (error) {
-        console.log(error)
+        console.error(error)
+        response.status(500).send(error.message) // TODO: leaks implementation
+      } else if (redirectLocation) {
+        response.redirect(302, redirectLocation.pathname + redirectLocation.search)   
       } else if (renderProps) {
-        // TODO: errors, redirection, etc.; HTTP status codes
         const content = renderToString(<RouterContext {...renderProps} />)      
-        response.send(renderToString(<HtmlTemplate content={content} />))
+        response.status(200).send(renderToString(<HtmlTemplate content={content} />))
+      } else {
+        response.status(404).send('Not Found!')
       }
     })
 })

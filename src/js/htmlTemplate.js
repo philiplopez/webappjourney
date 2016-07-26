@@ -9,6 +9,7 @@ export default function HtmlTemplate(props) {
             </head>
             <body>
                 <div id='appContainer' dangerouslySetInnerHTML={{__html: props.content}} />
+                <script src="/static/bundle.js"></script>
             </body>
         </html>
     );

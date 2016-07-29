@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'react-router/lib/Link'
 
+import Header from "./Header"
+import Footer from "./Footer"
+
 export default class AppLayout extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <h1>A Web Application Journey</h1>
-        </header>
+        <Header />
         <nav>
           <ul>
             <li>
@@ -19,9 +20,7 @@ export default class AppLayout extends React.Component {
         <main>
           {this.props.children}
         </main>
-        <footer>
-          (c) 2016
-        </footer>
+        <Footer />
       </div>
     )
   }

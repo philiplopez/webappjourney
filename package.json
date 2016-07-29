@@ -9,7 +9,8 @@
     "build:prod": "webpack -p --env.prod",
     "build:server": "babel src/js --presets es2015-node,react --out-dir dist-server",
     "start:server": "node dist-server/server.js",
-    "start:dev": "webpack-dev-server --env.dev --inline --history-api-fallback"
+    "start:dev": "webpack-dev-server --env.dev --inline --history-api-fallback",
+    "go": "npm run build:dev && npm run build:server && npm run start:server"
   },
   "repository": {
     "type": "git",

@@ -8,7 +8,7 @@
     "build:dev": "webpack --env.dev",
     "build:prod": "webpack -p --env.prod",
     "build:server": "babel src --presets es2015-node,react --out-dir dist-server --copy-files",
-    "start:server": "DEBUG=css-modules:* node dist-server/bootstrapServer.js",
+    "start:server": "node dist-server/bootstrapServer.js",
     "start:dev": "webpack-dev-server --env.dev --inline --history-api-fallback",
     "go": "npm run build:dev && npm run build:server && npm run start:server"
   },

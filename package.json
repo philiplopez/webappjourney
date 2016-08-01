@@ -29,10 +29,8 @@
     "babel-preset-es2015-node": "^6.1.0",
     "babel-preset-es2015-webpack": "^6.4.1",
     "babel-preset-react": "^6.5.0",
-    "html-webpack-plugin": "^2.22.0",
-    "html-webpack-template": "^5.0.0",
-    "webpack": "^2.1.0-beta.19",
-    "webpack-dev-server": "^2.1.0-beta.0"
+    "css-loader": "^0.23.1",
+    "webpack": "^2.1.0-beta.20"
   },
   "dependencies": {
     "express": "^4.14.0",

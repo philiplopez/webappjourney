@@ -1,6 +1,4 @@
 const {resolve} = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackTemplate = require('html-webpack-template')
 
 module.exports = env => {
   return {
@@ -22,14 +20,13 @@ module.exports = env => {
           query: {
             presets: ['es2015-webpack', 'react']
           }
+        },
+        {
+          test: /\.css$/,
+          loader: 'css-loader?modules'
         }
       ],
     },
-    plugins: [new HtmlWebpackPlugin({
-      inject: false,
-      template: HtmlWebpackTemplate,
-      appMountId: 'app-container',
-      mobile: true
-    })]
+    plugins: []
   }
 }

@@ -6,6 +6,7 @@ export default function HtmlTemplate(props) {
         <html>
             <head>
                 <title>A Web Application Journey</title>
+                <link rel="stylesheet" type="text/css" href="/static/styles.css" />
             </head>
             <body>
                 <div id='appContainer' dangerouslySetInnerHTML={{__html: props.content}} />

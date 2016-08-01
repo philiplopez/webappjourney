@@ -1,8 +1,9 @@
 const {resolve} = require('path')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = env => {
   return {
-    entry: './js/client.js',
+    entry: './client.js',
     output: {
       filename: 'bundle.js',
       path: resolve(__dirname, 'dist'),
@@ -16,17 +17,22 @@ module.exports = env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel',
+          loader: 'babel-loader',
           query: {
             presets: ['es2015-webpack', 'react']
           }
         },
         {
-          test: /\.css$/,
-          loader: 'css-loader?modules'
+          test: /\.css$/, 
+          loader: ExtractTextPlugin.extract({
+            // fallbackLoader: "style-loader",
+            loader: "css-loader?modules&localIdentName=[name]_[local]__[hash:base64:5]"
+          })
         }
       ],
     },
-    plugins: []
+    plugins: [
+      new ExtractTextPlugin("styles.css")
+    ]
   }
 }

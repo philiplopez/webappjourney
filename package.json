@@ -7,8 +7,8 @@
     "test": "karma",
     "build:dev": "webpack --env.dev",
     "build:prod": "webpack -p --env.prod",
-    "build:server": "babel src/js --presets es2015-node,react --out-dir dist-server",
-    "start:server": "node dist-server/server.js",
+    "build:server": "babel src --presets es2015-node,react --out-dir dist-server --copy-files",
+    "start:server": "DEBUG=css-modules:* node dist-server/bootstrapServer.js",
     "start:dev": "webpack-dev-server --env.dev --inline --history-api-fallback",
     "go": "npm run build:dev && npm run build:server && npm run start:server"
   },
@@ -30,10 +30,13 @@
     "babel-preset-es2015-webpack": "^6.4.1",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "webpack": "^2.1.0-beta.20"
   },
   "dependencies": {
+    "css-modules-require-hook": "^4.0.1",
     "express": "^4.14.0",
+    "postcss": "^4.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.6.0"

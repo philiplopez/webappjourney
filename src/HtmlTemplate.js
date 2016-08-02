@@ -1,15 +1,15 @@
 import React from 'react'
 
 // TODO: propTypes (content)
-export default function HtmlTemplate(props) {
+export default function HtmlTemplate({head, content}) {
     return (
         <html>
             <head>
-                <title>A Web Application Journey</title>
+                {head.title.toComponent()}
                 <link rel="stylesheet" type="text/css" href="/static/styles.css" />
             </head>
             <body>
-                <div id='appContainer' dangerouslySetInnerHTML={{__html: props.content}} />
+                <div id='appContainer' dangerouslySetInnerHTML={{__html: content}} />
                 <script src="/static/bundle.js"></script>
             </body>
         </html>

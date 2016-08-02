@@ -3,6 +3,7 @@ import express from 'express'
 import React from 'react'
 import {renderToString, renderToStaticMarkup} from 'react-dom/server'
 import {match, RouterContext} from 'react-router'
+import Helmet from 'react-helmet'
 import HtmlTemplate from './htmlTemplate'
 import routes from './routes'
 
@@ -21,8 +22,9 @@ app.get('/*', (request, response) => {
       } else if (redirectLocation) {
         response.redirect(302, redirectLocation.pathname + redirectLocation.search)   
       } else if (renderProps) {
-        const content = renderToString(<RouterContext {...renderProps} />)      
-        response.status(200).send(renderToStaticMarkup(<HtmlTemplate content={content} />))
+        const content = renderToString(<RouterContext {...renderProps} />)
+        const head = Helmet.rewind()       
+        response.status(200).send('<!DOCTYPE html>' + renderToStaticMarkup(<HtmlTemplate head={head} content={content} />))
       } else {
         response.status(404).send('Not Found!')
       }

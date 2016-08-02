@@ -1,7 +1,7 @@
 import path from 'path'
 import express from 'express'
 import React from 'react'
-import {renderToString} from 'react-dom/server'
+import {renderToString, renderToStaticMarkup} from 'react-dom/server'
 import {match, RouterContext} from 'react-router'
 import HtmlTemplate from './htmlTemplate'
 import routes from './routes'
@@ -22,7 +22,7 @@ app.get('/*', (request, response) => {
         response.redirect(302, redirectLocation.pathname + redirectLocation.search)   
       } else if (renderProps) {
         const content = renderToString(<RouterContext {...renderProps} />)      
-        response.status(200).send(renderToString(<HtmlTemplate content={content} />))
+        response.status(200).send(renderToStaticMarkup(<HtmlTemplate content={content} />))
       } else {
         response.status(404).send('Not Found!')
       }

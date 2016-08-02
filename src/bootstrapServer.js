@@ -7,6 +7,6 @@ hook({
   rootDir: projectDir
 })
 
-// We need to register the hook above first since ES2015 imports occur 
-// *before* statements are evaluated 
+// We need to register the hook above first since ES2015 imports 
+// occur *before* statements are evaluated 
 require('./server')

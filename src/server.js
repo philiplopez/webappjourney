@@ -23,8 +23,9 @@ app.get('/*', (request, response) => {
         response.redirect(302, redirectLocation.pathname + redirectLocation.search)   
       } else if (renderProps) {
         const content = renderToString(<RouterContext {...renderProps} />)
-        const head = Helmet.rewind()       
-        response.status(200).send('<!DOCTYPE html>' + renderToStaticMarkup(<HtmlTemplate head={head} content={content} />))
+        const head = Helmet.rewind()
+        const html = renderToStaticMarkup(<HtmlTemplate head={head} content={content} />)
+        response.status(200).send('<!DOCTYPE html>' + html)
       } else {
         response.status(404).send('Not Found!')
       }

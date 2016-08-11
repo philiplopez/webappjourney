@@ -19,7 +19,7 @@ module.exports = env => {
           exclude: /node_modules/,
           loader: 'babel-loader',
           query: {
-            presets: ['es2015-webpack', 'react']
+            presets: ['es2015-webpack', 'react', 'stage-1']
           }
         },
         {
